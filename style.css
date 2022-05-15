@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter";
+}
+
+/* Container element of all buttons and inputs */
+.control {
+  display: grid;
+  width: 60%;
+  margin: auto;
+  grid-template-columns: 1fr;
+}
+
+.control > div > input {
+  width: 25%;
+}
+
+/* Todos list css */
+#todo-list-ul {
+  list-style: none;
+  display: grid;
+  width: 60%;
+  margin: auto;
+  grid-template-columns: 1fr;
+}
+
+#todo-list-ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#todo-list-ul > li > * {
+  margin: 1rem;
+}
+
+
+
