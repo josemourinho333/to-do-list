@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="control">
+
+    <div class="add-control">
+      <input id="add-input">
+      <button id="add-button" size="2">Add</button>
+    </div>
+
+    <div class="edit-control">
+      <input id="edit-position-input">
+      <input id="edit-text-input">
+      <button id="edit-button">Edit</button>
+    </div>
+
+    <div class="toggle-control">
+      <!-- <input id="toggle-input">
+      <button id="toggle-button">Toggle</button> -->
+      <button id="toggle-all-button">Toggle All</button>
+    </div>
+
+  </div>
+
+  <ul id="todo-list-ul">
+  </ul>
+</body>
+<script src="script.js"></script>
+</html>
