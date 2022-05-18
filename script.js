@@ -12,21 +12,52 @@ function addTodo() {
   displayTodos();
 }
 
-function editTodo() {
-  todos[$('#edit-position-input').val()].todoText = $('#edit-text-input').val();
-  $('#edit-position-input').val('');
-  $('#edit-text-input').val('')
+function confirmEdit(event) {
+  let position = event.target.id.split('-')[1];
+  let updatedTodo = event.target.previousSibling.value;
+  todos[position].todoText = updatedTodo;
   displayTodos();
 }
 
+function editTodo(event) {
+  let currentTodo = event.target;
+  let position = event.target.id.split('-')[1];
+  let currentTodoText = event.target.innerHTML;
+  let previousElement = event.target.previousElementSibling;
+  let editSpace = $('<input/>', {
+    id: 'todo-' + position,
+    value: currentTodoText,
+    class: 'new-todo',
+  });
+  let submitEditButton = $('<button/>', {
+    id: 'submit-' + position,
+    text: 'Submit',
+    class: 'submit-edit-button'
+  });
+  let cancelEditButton = $('<button/>', {
+    id: 'cancel-' + position,
+    text: 'x',
+    class: 'cancel-edit-button'
+  })
+
+  currentTodo.remove();
+  $(`#delete-${position}`).hide();
+  editSpace.insertAfter($(previousElement));
+  submitEditButton.insertAfter(editSpace);
+  cancelEditButton.insertAfter(submitEditButton);
+  submitEditButton.click(confirmEdit);
+  cancelEditButton.click(displayTodos);
+}
+
 function deleteTodo(event) {
-  let position = event.target.id;
+  let position = event.target.id.split('-')[1];
   todos.splice(position, 1);
   displayTodos();
 }
 
 function toggle(event) {
-  let position = event.target.id;
+  let position = event.target.id.split('-')[1];
+
   if (todos[position].completed === false) {
     todos[position].completed = true;
   } else {
@@ -41,32 +72,34 @@ function displayTodos() {
   for (let i = 0; i < todos.length; i++) {
     let toggleArea = $('<input/>', {
       type: 'checkbox',
-      class: 'toggle',
-      id: i,
+      class: 'toggle-complete',
+      id: 'toggle-' + i,
+      checked: todos[i].completed,
     });
     let text = $('<div/>', {
+      class: 'todo',
+      id: 'todo-' + i, 
       text: todos[i].todoText,
     });
     let deleteButton =$('<button/>', {
       text: 'x',
       class: 'delete-button',
-      id: i,
+      id: 'delete-' + i,
     })
-    let completed = $('<div/>', {
-      text: todos[i].completed,
-    });
     let todoContainer = $('<li/>', {
       class: 'todo-container',
     });
 
     toggleArea.click(toggle);
     deleteButton.click(deleteTodo);
+    text.click(editTodo);
     todoContainer.append(toggleArea);
     todoContainer.append(text);
     todoContainer.append(deleteButton);
-    todoContainer.append(completed);
     todoContainer.appendTo($('#todo-list-ul'));
   }
+
+  console.log(todos);
 }
 
 function toggleAll() {
@@ -93,5 +126,3 @@ function toggleAll() {
 
 $('#toggle-all-button').click(toggleAll);
 $('#add-button').click(addTodo);
-$('#edit-button').click(editTodo);
-// $('#toggle-button').click(toggle)
