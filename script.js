@@ -57,14 +57,24 @@ function deleteTodo(event) {
 
 function toggle(event) {
   let position = event.target.id.split('-')[1];
+  let textPosition = $(`#todo-${position}`);
 
   if (todos[position].completed === false) {
     todos[position].completed = true;
+    textPosition.addClass('toggled');
+    // setTimeout(() => {
+    //   alert('you completed it');
+    // }, 2000);
   } else {
     todos[position].completed = false;
+    textPosition.removeClass('toggled');
+    // setTimeout(() => {
+    //   alert('you canceled the toggle completed');
+    // }, 2000);
   }
 
-  displayTodos();
+  // Don't think I need displayTodos() below??
+  // displayTodos();
 }
 
 function displayTodos() {
@@ -124,5 +134,23 @@ function toggleAll() {
   displayTodos();
 }
 
+function darkMode (event) {
+  let on = event.target.id;
+  if (on === 'darkModeOff') {
+    $('.switch-mode-button').removeAttr('id');
+    $('.switch-mode-button').attr('id', 'darkModeOn');
+    $('body').addClass('body-dark');
+    $('button').addClass('button-dark');
+    $('#add-input').addClass('add-input-dark');
+  } else if (on === 'darkModeOn') {
+    $('.switch-mode-button').removeAttr('id');
+    $('.switch-mode-button').attr('id', 'darkModeOff');
+    $('body').removeClass('body-dark');
+    $('button').removeClass('button-dark');
+    $('#add-input').removeClass('add-input-dark');
+  }
+}
+
 $('#toggle-all-button').click(toggleAll);
 $('#add-button').click(addTodo);
+$('#darkModeOff').click(darkMode);
