@@ -19,13 +19,17 @@ button {
   color: #fff;
 }
 
+button:hover {
+  background-color: #eba74f;
+}
+
 /* Container element of all buttons and inputs */
 .control-container {
   height: 100vh;
   display: grid;
   grid-template-columns: 15% 1fr 15%;
   grid-template-rows: 20% 50px 1fr 50px 20%;
-  row-gap: 25px;
+  /* row-gap: 25px; */
   align-content: center;
 }
 /* toggle all, add input and add button CSS */
@@ -37,7 +41,7 @@ button {
 }
 
 #toggle-all-button {
-  border-radius: 50px 0px 0px 50px;
+  border-radius: 10px 0px 0px 0px;
   width: 20%;
 }
 
@@ -50,7 +54,7 @@ button {
 }
 
 #add-button {
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 0px 10px 0px 0px;
   width: 20%;
 }
 
@@ -59,6 +63,9 @@ button {
   grid-column-start: 2;
   grid-row-start: 3;
   overflow: auto;
+  border-left: 1px solid #ffb95d;
+  border-right: 1px solid #ffb95d;
+  padding: 25px;
 }
 
 #todo-list-ul {
@@ -132,6 +139,33 @@ input[type=checkbox] {
 .menu-container {
   grid-column-start: 2;
   grid-row-start: 4;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffb95d;
+  border-radius: 0px 0px 10px 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.menu-container > button {
+  width: 100%;
+}
+
+
+#todosAll {
+  border-radius: 0px 0px 0px 10px;
+}
+
+#todosActive {
+  border-radius: 0px;
+}
+
+#todosCompleted {
+  border-radius: 0px;
+}
+
+.switch-mode-button {
+  border-radius: 0px 0px 10px 0px;
 }
 
 /* ALL Dark Mode CSS  */
