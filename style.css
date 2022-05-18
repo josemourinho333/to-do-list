@@ -4,36 +4,120 @@
   font-family: "Inter";
 }
 
+button {
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 5px 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: #ffb95d;
+  color: #fff;
+}
+
 /* Container element of all buttons and inputs */
-.control {
+.control-container {
+  height: 100vh;
   display: grid;
-  width: 60%;
-  margin: auto;
-  grid-template-columns: 1fr;
+  grid-template-columns: 25% 1fr 25%;
+  grid-template-rows: 25% 50px 1fr 25%;
+  row-gap: 25px;
+  align-content: center;
 }
 
-.control > div > input {
-  width: 25%;
+.main-container {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: flex;
+  flex-direction: row;
 }
 
-/* Todos list css */
+#toggle-all-button {
+  border-radius: 50px 0px 0px 50px;
+}
+
+#add-input {
+  width: 100%;
+  border: 1px solid #dedede;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+#add-button {
+  border-radius: 0px 50px 50px 0px;
+}
+
+.todo-list-container {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  overflow: auto;
+}
+
 #todo-list-ul {
   list-style: none;
-  display: grid;
-  width: 60%;
-  margin: auto;
-  grid-template-columns: 1fr;
 }
 
 #todo-list-ul > li {
-  display: flex;
-  flex-direction: row;
   align-items: center;
+  display: flex; 
 }
 
 #todo-list-ul > li > * {
-  margin: 1rem;
+  margin: 0.5rem;
 }
+
+.todo-container > input {
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.2rem;
+  font-weight: 300;
+}
+
+.new-todo {
+  width: 100%;
+} 
+
+input[type=checkbox] {
+  border: 3px solid red;
+}
+
+.todo {
+  justify-self: flex-start;
+  font-size: 1.25rem;
+  font-weight: 300;
+  width: 100%;
+}
+
+.delete-button {
+  justify-self: center;
+}
+
+.cancel-edit-button {
+  justify-self: center;
+}
+
+.submit-edit-button {
+  justify-self: center;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffb95d60;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffb95d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb95db0
+}
+
+
+
 
 
 
