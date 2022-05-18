@@ -4,6 +4,11 @@
   font-family: "Inter";
 }
 
+body {
+  background-color: #fff;
+  color: #121212;
+}
+
 button {
   font-weight: 700;
   font-size: 0.75rem;
@@ -18,12 +23,12 @@ button {
 .control-container {
   height: 100vh;
   display: grid;
-  grid-template-columns: 25% 1fr 25%;
-  grid-template-rows: 25% 50px 1fr 25%;
+  grid-template-columns: 15% 1fr 15%;
+  grid-template-rows: 20% 50px 1fr 50px 20%;
   row-gap: 25px;
   align-content: center;
 }
-
+/* toggle all, add input and add button CSS */
 .main-container {
   grid-column-start: 2;
   grid-row-start: 2;
@@ -33,19 +38,23 @@ button {
 
 #toggle-all-button {
   border-radius: 50px 0px 0px 50px;
+  width: 20%;
 }
 
 #add-input {
   width: 100%;
-  border: 1px solid #dedede;
+  border: 1px solid #ffb95d;
   font-size: 1.25rem;
   font-weight: 300;
+  padding-left: 20px;
 }
 
 #add-button {
   border-radius: 0px 50px 50px 0px;
+  width: 20%;
 }
 
+/* Todo list render area css */
 .todo-list-container {
   grid-column-start: 2;
   grid-row-start: 3;
@@ -66,10 +75,9 @@ button {
 }
 
 .todo-container > input {
-  border: 1px solid #dedede;
+  border: 1px solid #fff;
   border-radius: 10px;
-  font-size: 1rem;
-  padding: 0.2rem;
+  font-size: 1.25rem;
   font-weight: 300;
 }
 
@@ -86,6 +94,10 @@ input[type=checkbox] {
   font-size: 1.25rem;
   font-weight: 300;
   width: 100%;
+}
+
+.toggled {
+  text-decoration: line-through;
 }
 
 .delete-button {
@@ -115,6 +127,27 @@ input[type=checkbox] {
 ::-webkit-scrollbar-thumb:hover {
   background: #ffb95db0
 }
+
+/* CSS for menu container  */
+.menu-container {
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+
+/* ALL Dark Mode CSS  */
+.body-dark {
+  background-color: #212121;
+  color: #bfbfbf;
+}
+
+.add-input-dark {
+  background-color: #0a0a0a;
+}
+
+.button-dark {
+  color: #212121;
+}
+
 
 
 
