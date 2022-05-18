@@ -1,8 +1,20 @@
 const todos = [
-  {todoText: 'One', completed: false},
+  {todoText: 'One', completed: true},
   {todoText: 'Two', completed: false},
-  {todoText: 'Three', completed: false},
+  {todoText: 'Three', completed: true},
 ];
+
+const todosCompleted = todos.filter(function completed(todo) {
+  if (todo.completed === true) {
+    return todo;
+  }
+});
+
+// const todosActive = todos.filter(function active(todo) {
+//   if (todo.completed === false) {
+//     return todo;
+//   }
+// });
 
 displayTodos();
 
@@ -98,6 +110,7 @@ function displayTodos() {
     })
     let todoContainer = $('<li/>', {
       class: 'todo-container',
+      id: 'todo-container-' + i,
     });
 
     toggleArea.click(toggle);
@@ -139,18 +152,41 @@ function darkMode (event) {
   if (on === 'darkModeOff') {
     $('.switch-mode-button').removeAttr('id');
     $('.switch-mode-button').attr('id', 'darkModeOn');
+    $('.switch-mode-button').text('Light Mode');
     $('body').addClass('body-dark');
     $('button').addClass('button-dark');
     $('#add-input').addClass('add-input-dark');
   } else if (on === 'darkModeOn') {
     $('.switch-mode-button').removeAttr('id');
     $('.switch-mode-button').attr('id', 'darkModeOff');
+    $('.switch-mode-button').text('Dark Mode');
     $('body').removeClass('body-dark');
     $('button').removeClass('button-dark');
     $('#add-input').removeClass('add-input-dark');
   }
 }
 
+function displayTodosActive () {
+  displayTodos();
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].completed === true) {
+      $(`#todo-container-${i}`).hide();
+    }
+  }
+}
+
+function displayTodosCompleted () {
+  displayTodos();
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].completed === false) {
+      $(`#todo-container-${i}`).hide();
+    }
+  }
+}
+
 $('#toggle-all-button').click(toggleAll);
 $('#add-button').click(addTodo);
 $('#darkModeOff').click(darkMode);
+$('#todosAll').click(displayTodos);
+$('#todosActive').click(displayTodosActive);
+$('#todosCompleted').click(displayTodosCompleted);
