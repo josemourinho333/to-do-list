@@ -1,20 +1,8 @@
 const todos = [
-  {todoText: 'Call CarexUs Tomorrow', completed: false},
+  {todoText: 'One', completed: false},
   {todoText: 'Two', completed: false},
   {todoText: 'Three', completed: true},
 ];
-
-const todosCompleted = todos.filter(function completed(todo) {
-  if (todo.completed === true) {
-    return todo;
-  }
-});
-
-// const todosActive = todos.filter(function active(todo) {
-//   if (todo.completed === false) {
-//     return todo;
-//   }
-// });
 
 displayTodos();
 
@@ -74,17 +62,10 @@ function toggle(event) {
   if (todos[position].completed === false) {
     todos[position].completed = true;
     textPosition.addClass('toggled');
-    // setTimeout(() => {
-    //   alert('you completed it');
-    // }, 2000);
   } else {
     todos[position].completed = false;
     textPosition.removeClass('toggled');
-    // setTimeout(() => {
-    //   alert('you canceled the toggle completed');
-    // }, 2000);
   }
-
   // Don't think I need displayTodos() below??
   // displayTodos();
 }
@@ -186,7 +167,7 @@ function displayTodosCompleted () {
 
 $('#toggle-all-button').click(toggleAll);
 $('#add-button').click(addTodo);
-$('#darkModeOff').click(darkMode);
+// $('#darkModeOff').click(darkMode);
 $('#todosAll').click(displayTodos);
 $('#todosActive').click(displayTodosActive);
 $('#todosCompleted').click(displayTodosCompleted);
