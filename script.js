@@ -1,5 +1,5 @@
 const todos = [
-  {todoText: 'One', completed: true},
+  {todoText: 'Call CarexUs Tomorrow', completed: false},
   {todoText: 'Two', completed: false},
   {todoText: 'Three', completed: true},
 ];
